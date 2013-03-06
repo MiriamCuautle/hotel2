@@ -31,6 +31,23 @@ function setData(nombre, valor){ //simpleBD
 	window.localStorage.setItem(nombre, valor);
 }
 
+function iniciarBD(){
+	var db = window.openDatabase("Databasem", "1.0", "HotelV2", "1000000");
+	db.transaction( function(tx) {
+     tx.executeSql('CREATE TABLE IF NOT EXISTS historial (hId unique, fecha, habitaciones, personas, estancia)');
+     tx.executeSql('CREATE TABLE IF NOT EXISTS reserva( rId unique, fecha, habitaciones, personas, estancia)');
+}
+, function(err) {
+    alert("Error processing SQL: "+err.code);
+}
+, function() {
+    alert("success!");
+}
+);
+
+
+	
+}
 
 
 function getData(usuario){//obtSimpleBD
