@@ -54,9 +54,10 @@ function getData(usuario){//obtSimpleBD
 	window.localStorage.getItem(nombre);
 }
 
+/*
 function isLogin(){
 		if(getData('nombre')!= 'undefined' && getData('dispId')!= 'undefined')
 			return true;
 		else
 			false;
-}
+}*/

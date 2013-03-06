@@ -24,6 +24,7 @@ $(document).ready(function(e){
 	}, false);
 });
 
+
 function isLogin(){
 	return false;
 }
