@@ -36,6 +36,7 @@ function iniciarBD(){
 	db.transaction( function(tx) {
      tx.executeSql('CREATE TABLE IF NOT EXISTS historial (hId unique, fecha, habitaciones, personas, estancia)');
      tx.executeSql('CREATE TABLE IF NOT EXISTS reserva( rId unique, fecha, habitaciones, personas, estancia)');
+	 tx.executeSql('INSERT INTO reserva (rId unique, fecha, habitaciones, personas, estancia) VALUES (1, "2013-02-05", 1,2,3)');
 }
 , function(err) {
     alert("Error processing SQL: "+err.code);
@@ -51,7 +52,7 @@ function leerHistorial(){
         db.transaction(
 				function(tx) {
 					tx.executeSql(
-						'SELECT * FROM historial', 
+						'SELECT * FROM reserva', 
 						[], 
 						function(tx, results) { //querySuccess
 							for (var i=0; i< results.rows.length; i++){
