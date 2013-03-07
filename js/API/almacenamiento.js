@@ -48,7 +48,7 @@ function iniciarBD(){
 }
 
 function leerHistorial(){
- var db = window.openDatabase("Database", "1.0", "HotelV2", 200000);
+ var db = window.openDatabase("Databasem", "1.0", "HotelV2", "2000000");
         db.transaction(
 				function(tx) {
 					tx.executeSql(
