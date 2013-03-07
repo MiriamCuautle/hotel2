@@ -35,12 +35,12 @@ function iniciarBD(){
 	var db = window.openDatabase("Databasem", "1.0", "HotelV2", "1000000");
 	db.transaction( function(tx) {
 		 tx.executeSql('DROP TABLE IF EXISTS reserva');
-/*		 tx.executeSql('CREATE TABLE IF NOT EXISTS historial (hId unique, fecha, habitaciones, personas, estancia)');
-*/		 tx.executeSql('CREATE TABLE IF NOT EXISTS reserva( rId unique, fecha, habitaciones, personas, estancia)');
+		 tx.executeSql('CREATE TABLE IF NOT EXISTS historial (hId unique, fecha, habitaciones, personas, estancia)');
+		 tx.executeSql('CREATE TABLE IF NOT EXISTS reserva( rId unique, fecha, habitaciones, personas, estancia)');
 		 tx.executeSql('INSERT INTO reserva (rId unique, fecha, habitaciones, personas, estancia) VALUES (1, "2013-02-05", 1,2,3)');
 		}, 
 		function(err) {
-			alert(" p: ", "Aceptar");
+			alert(" Error p: ", "Aceptar");
 		}, 
 		function() {
 			alert("success iniciarBD!");
@@ -61,12 +61,12 @@ function leerHistorial(){
 							}
 						}, 
 						function(err) { //errorCB
-							alert("L1 ", "Aceptar");
+							alert("Error l1 ", "Aceptar");
 						}
 					);
     			}, 
 				function(err) {//errorCB
-					alert("L2: ", "Aceptar");
+					alert("Erro L2: ", "Aceptar");
 					}
 				);
 }
