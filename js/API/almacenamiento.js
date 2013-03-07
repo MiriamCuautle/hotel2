@@ -40,7 +40,7 @@ function iniciarBD(){
 		 tx.executeSql('INSERT INTO reserva (rId unique, fecha, habitaciones, personas, estancia) VALUES (1, "2013-02-05", 1,2,3)');
 		}, 
 		function(err) {
-			alert("Error processing SQL p: ", "Aceptar");
+			alert(" p: ", "Aceptar");
 		}, 
 		function() {
 			alert("success iniciarBD!");
@@ -61,12 +61,12 @@ function leerHistorial(){
 							}
 						}, 
 						function(err) { //errorCB
-							alert("Error processing SQL1 ", "Aceptar");
+							alert("L1 ", "Aceptar");
 						}
 					);
     			}, 
 				function(err) {//errorCB
-					alert("Error processing SQL2: ", "Aceptar");
+					alert("L2: ", "Aceptar");
 					}
 				);
 }
