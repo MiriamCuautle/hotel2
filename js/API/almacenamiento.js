@@ -60,12 +60,12 @@ function leerHistorial(){
 							}
 						}, 
 						function(err) { //errorCB
-							alert("Error processing SQL ", "Aceptar");
+							alert("Error processing SQL1 ", "Aceptar");
 						}
 					);
     			}, 
 				function(err) {//errorCB
-					alert("Error processing SQL: ", "Aceptar");
+					alert("Error processing SQL2: ", "Aceptar");
 					}
 				);
 }
