@@ -44,9 +44,29 @@ function iniciarBD(){
     alert("success!");
 }
 );
+}
 
-
-	
+function leerHistorial(){
+ var db = window.openDatabase("Database", "1.0", "HotelV2", 200000);
+        db.transaction(
+				function(tx) {
+					tx.executeSql(
+						'SELECT * FROM historial', 
+						[], 
+						function(tx, results) { //querySuccess
+							for (var i=0; i< results.rows.length; i++){
+								alert(result.rows[i].hId);
+							}
+						}, 
+						function(err) { //errorCB
+							alert("Error processing SQL ", "Aceptar");
+						}
+					);
+    			}, 
+				function(err) {//errorCB
+					alert("Error processing SQL: ", "Aceptar");
+					}
+				);
 }
 
 
