@@ -40,7 +40,7 @@ function iniciarBD(){
 		 tx.executeSql('INSERT INTO reserva (rId unique, fecha, habitaciones, personas, estancia) VALUES (1, "2013-02-05", 1,2,3)');
 		}, 
 		function(err) {
-			alert(" Error p: ", "Aceptar");
+			alert(" Error p: ", ee.code);
 		}, 
 		function() {
 			alert("success iniciarBD!");
