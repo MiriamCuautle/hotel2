@@ -47,7 +47,7 @@ function iniciarBD(){
 			//alert("success iniciarBD!","iniciarDBE");
 			window.locateStorage.setItem('Usuario',$('#regNombre').val());
 			window.locateStorage.setItem('Id',dispositivo()['id']);
-			pgAlert('Reservas','Ha sido registrado');
+			alert('Reservas','Ha sido registrado');
 			window.location.href='#page';
 		}
 	);
