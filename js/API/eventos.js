@@ -30,9 +30,11 @@ $(document).ready(function(e){
 	}, false);
 });
 
-
 function isLogin(){
-	return false;
+		if(window.localStorage.getItem('Usuario')!= 'undefined' )
+			return true;
+		else
+			false;
 }
 
 function syncRegs(){
@@ -47,6 +49,7 @@ function reservar(){
 		switch($(this).index()){
 			case 1:
 					$('#nr1').attr('th','1');
+					
 				break;
 			case 2:
 					$('#nr1').attr('th','2');
@@ -60,6 +63,7 @@ function reservar(){
 		window.location.href="#nr2";
 	});
 	$('#nr2 #enviar').tap(function(){
+		alert($('#nr1').attr('th'));
 		if(!isConnected()){
 			//Guardar en BD local
 			saveReserva();
