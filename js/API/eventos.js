@@ -46,6 +46,13 @@ function syncRegs(){
 }
 
 
+function sendData(){
+	document.addEventListener("online", function(){
+		leerReservas();
+	}, false);
+}
+
+
 function reservar(){
 	$('#nr1 ul[data-role=listview] .opc').click(function(){
 		switch($(this).index()){

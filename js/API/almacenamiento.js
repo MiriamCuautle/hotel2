@@ -85,16 +85,17 @@ function leerReservas(){
 						[], 
 						function(tx, results) { //querySuccess
 							for (var i=0; i< results.rows.length; i++){
-								alert(result.rows[i].hId);
+								//alert(result.rows[i].hId);
+								$('#prueSQL').text(results.rows.item(i).hId);
 							}
 						}, 
 						function(err) { //errorCB
-							alert("Error reerva1 ", "Aceptar");
+							alert("Error reerva1 ", err.code);
 						}
 					);
     			}, 
 				function(err) {//errorCB
-					alert("Error reerva2 ", "Aceptar");
+					alert("Error reerva2 ", err.code);
 					}
 				);
 }
