@@ -39,3 +39,31 @@ function syncRegs(){
 		leerHistorial();
 	}, false);
 }
+
+
+function reservar(){
+	$('#nr1 ul[data-role=listview] .opc').click(function(){
+		switch($(this).index()){
+			case 1:
+					$('#nr1').attr('th','1');
+				break;
+			case 2:
+					$('#nr1').attr('th','2');
+				break;
+			case 3:
+					$('#nr1').attr('th','3');
+				break;
+				
+		}
+		
+		window.location.href="#nr2";
+	});
+	$('#nr2 #enviar').tap(function(){
+		if(!isConnected()){
+			//Guardar en BD local
+			saveReserva();
+		}else{
+			//Enviar al servidor
+		}
+		});
+}

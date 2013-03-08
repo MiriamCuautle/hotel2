@@ -38,13 +38,17 @@ function iniciarBD(){
 		 tx.executeSql('DROP TABLE IF EXISTS reserva');
 		 tx.executeSql('CREATE TABLE IF NOT EXISTS historial (hId unique, fecha, habitaciones, personas, estancia)');
 		 tx.executeSql('CREATE TABLE IF NOT EXISTS reserva( rId unique, fecha, habitaciones, personas, estancia)');
-		 tx.executeSql('INSERT INTO reserva (rId unique, fecha, habitaciones, personas, estancia) VALUES (1, "2013-02-05", 1,2,3)');
+		/* tx.executeSql('INSERT INTO reserva (rId unique, fecha, habitaciones, personas, estancia) VALUES (1, "2013-02-05", 1,2,3)');*/
 		}, 
 		function(err) {
-			alert(" Error p: ", ee.code);
+			alert(" Error iniciar: ", ee.code);
 		}, 
 		function() {
-			alert("success iniciarBD!","iniciarDBE");
+			//alert("success iniciarBD!","iniciarDBE");
+			window.locateStorage.setItem('Usuario',$('#regNombre').val());
+			window.locateStorage.setItem('Id',dispositivo()['id']);
+			pgAlert('Reservas','Ha sido registrado');
+			window.location.href='#page';
 		}
 	);
 }
@@ -54,7 +58,7 @@ function leerHistorial(){
         db.transaction(
 				function(tx) {
 					tx.executeSql(
-						'SELECT * FROM reserva', 
+						'SELECT * FROM historial', 
 						[], 
 						function(tx, results) { //querySuccess
 							for (var i=0; i< results.rows.length; i++){
@@ -62,12 +66,12 @@ function leerHistorial(){
 							}
 						}, 
 						function(err) { //errorCB
-							alert("Error historial ", "Aceptar");
+							alert("Error historial1 ", "Aceptar");
 						}
 					);
     			}, 
 				function(err) {//errorCB
-					alert("Erro  openDatabase 2: ", "Aceptar");
+					alert("Error historia2: ", "Aceptar");
 					}
 				);
 }
@@ -85,14 +89,34 @@ function leerReservas(){
 							}
 						}, 
 						function(err) { //errorCB
-							alert("Error historial ", "Aceptar");
+							alert("Error reerva1 ", "Aceptar");
 						}
 					);
     			}, 
 				function(err) {//errorCB
-					alert("Erro  openDatabase Reser: ", "Aceptar");
+					alert("Error reerva2 ", "Aceptar");
 					}
 				);
+}
+
+function saveReserva(){
+	var tipoHabitacion=$('#nr1').attr('th');
+	var habit=$('#nr2 ul[data-role=listview] li:eq(1)').children('select').val();
+	var pers=$('#nr2 ul[data-role=listview] li:eq(2)').children('select').val();
+	var dias=$('#nr2 ul[data-role=listview] li:eq(3)').children('select').val();
+	var fecha=new Date();
+
+	var db = window.openDatabase("Databasem", "1.0", "HotelV2", "2000000");
+	db.transaction(function (tx){
+		tx.executeSql('INSERT INTO reserva (rId , fecha, habitaciones, personas, estancia) VALUES (2, "'+fecha.getDate() + "/" + meses[fecha.getMonth()] + "/" + fecha.getFullYear()+'", '+habit+','+pers+','+dias+')')
+	}, function(err){
+		pgAlert('Error', err.code);
+	},function(){
+		pgAlert('Guardado Localmente', 'Esperando por conexion al servidor');
+	});
+	
+		
+
 }
 
 
