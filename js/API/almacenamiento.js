@@ -108,9 +108,9 @@ function saveReserva(){
 
 	var db = window.openDatabase("Databasem", "1.0", "HotelV2", "2000000");
 	db.transaction(function (tx){
-		tx.executeSql('INSERT INTO reserva (rId , fecha, habitaciones, personas, estancia) VALUES (3, "'+fecha.getDate() + '/' + meses[fecha.getMonth()] + '/' + fecha.getFullYear()+'", "'+habit+'","'+pers+'","'+dias+'")');
+		tx.executeSql('INSERT INTO reserva (rId , fecha, habitaciones, personas, estancia) VALUES (3, "'+fecha.getDate() + '/' + fecha.getMonth() + '/' + fecha.getFullYear()+'", "'+habit+'","'+pers+'","'+dias+'")');
 	}, function(err){
-		pgAlert('Error', err.code);
+		pgAlert('Error save', err.code);
 	},function(){
 		pgAlert('Guardado Localmente', 'Esperando por conexion al servidor');
 	});
