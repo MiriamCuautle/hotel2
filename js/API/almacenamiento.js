@@ -41,7 +41,7 @@ function iniciarBD(){
 		/* tx.executeSql('INSERT INTO reserva (rId unique, fecha, habitaciones, personas, estancia) VALUES (1, "2013-02-05", 1,2,3)');*/
 		}, 
 		function(err) {
-			alert(" Error iniciar: ", ee.code);
+			alert(" Error iniciar: ", err.code);
 		}, 
 		function() {
 			//alert("success iniciarBD!","iniciarDBE");
