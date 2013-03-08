@@ -69,10 +69,10 @@ function reservar(){
 		if(!isConnected()){
 			//Guardar en BD local
 			saveReserva();
-			alert("Conectado");
+			alert("DesConectado");
 		}else{
 			//Enviar al servidor
-						alert("DesConectado");
+						alert("Conectado");
 
 		}
 		});
