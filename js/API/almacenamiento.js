@@ -34,6 +34,7 @@ function setData(nombre, valor){ //simpleBD
 function iniciarBD(){
 	var db = window.openDatabase("Databasem", "1.0", "HotelV2", "1000000");
 	db.transaction( function(tx) {
+		
 		 tx.executeSql('DROP TABLE IF EXISTS reserva');
 		 tx.executeSql('CREATE TABLE IF NOT EXISTS historial (hId unique, fecha, habitaciones, personas, estancia)');
 		 tx.executeSql('CREATE TABLE IF NOT EXISTS reserva( rId unique, fecha, habitaciones, personas, estancia)');
@@ -43,7 +44,7 @@ function iniciarBD(){
 			alert(" Error p: ", ee.code);
 		}, 
 		function() {
-			alert("success iniciarBD!");
+			alert("success iniciarBD!","iniciarDBE");
 		}
 	);
 }
@@ -61,12 +62,35 @@ function leerHistorial(){
 							}
 						}, 
 						function(err) { //errorCB
-							alert("Error l1 ", "Aceptar");
+							alert("Error historial ", "Aceptar");
 						}
 					);
     			}, 
 				function(err) {//errorCB
-					alert("Erro L2: ", "Aceptar");
+					alert("Erro  openDatabase 2: ", "Aceptar");
+					}
+				);
+}
+
+function leerReservas(){
+ var db = window.openDatabase("Databasem", "1.0", "HotelV2", "2000000");
+        db.transaction(
+				function(tx) {
+					tx.executeSql(
+						'SELECT * FROM reserva', 
+						[], 
+						function(tx, results) { //querySuccess
+							for (var i=0; i< results.rows.length; i++){
+								alert(result.rows[i].hId);
+							}
+						}, 
+						function(err) { //errorCB
+							alert("Error historial ", "Aceptar");
+						}
+					);
+    			}, 
+				function(err) {//errorCB
+					alert("Erro  openDatabase 2: ", "Aceptar");
 					}
 				);
 }

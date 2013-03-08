@@ -22,9 +22,9 @@ $(document).ready(function(e){
 			}
 		});
 		
-		$('#pruebaSQL').tap(function()
+		$('#prueSQL').tap(function()
 		{
-			leerHistorial();
+			leerReservas();
 		});
 	}, false);
 });
