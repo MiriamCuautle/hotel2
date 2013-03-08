@@ -90,7 +90,7 @@ function leerReservas(){
 					);
     			}, 
 				function(err) {//errorCB
-					alert("Erro  openDatabase 2: ", "Aceptar");
+					alert("Erro  openDatabase Reser: ", "Aceptar");
 					}
 				);
 }
