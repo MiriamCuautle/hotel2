@@ -24,8 +24,9 @@ $(document).ready(function(e){
 		
 		$('#prueSQL').tap(function()
 		{
-			leerReservas();
+			//leerReservas();
 		});
+		reservar();
 	}, false);
 });
 
