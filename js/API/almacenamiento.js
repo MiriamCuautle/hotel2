@@ -120,6 +120,7 @@ function leerReservas(){
 function saveReserva(){
 	var id_reserva=getId('reserva');
 	var id_historial=getId('historial');
+	alert("idr"+id_reserva+"idh"+id_historial);
 	var tipoHabitacion=$('#nr1').attr('th');
 	var habit=$('#nr2 ul[data-role=listview] li:eq(1)').children('select').val();
 	var pers=$('#nr2 ul[data-role=listview] li:eq(2)').children('select').val();
